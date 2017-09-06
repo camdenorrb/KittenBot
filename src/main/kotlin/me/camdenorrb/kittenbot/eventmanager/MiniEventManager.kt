@@ -7,7 +7,7 @@ import net.dv8tion.jda.core.hooks.IEventManager
 
 class MiniEventManager : IEventManager {
 
-	override fun handle(event: Event) { minibus(event.responseNumber) }
+	override fun handle(event: Event) { minibus(event) }
 
 
 	override fun getRegisteredListeners() = minibus.listenerMap.toList()
