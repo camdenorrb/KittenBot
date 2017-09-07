@@ -25,6 +25,7 @@ class SetPrefixCmd : Cmd(arrayOf("setPrefix"), "setPrefix [Prefix Character]", 1
 	}
 
 
-	override fun canExecute(user: User, channel: MessageChannel, guild: Guild) = guild.isOwner(user) || super.canExecute(user, channel, guild)
+	override fun canExecute(user: User, channel: MessageChannel, guild: Guild)
+		= guild.isOwner(user) || super.canExecute(user, channel, guild)
 
 }

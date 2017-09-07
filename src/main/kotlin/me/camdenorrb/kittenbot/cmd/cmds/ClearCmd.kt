@@ -17,7 +17,6 @@ class ClearCmd : Cmd(arrayOf("clear"), "clear [1-100]", 1) {
 		val amount = args[0].toIntOrNull()?.takeIf { it in 1..100 } ?: return false
 		val history = channel.history.retrievePast(amount).complete()
 
-
 		threadPool.execute {
 
 			history.filter { !it.isPinned }.forEach {
@@ -27,10 +26,11 @@ class ClearCmd : Cmd(arrayOf("clear"), "clear [1-100]", 1) {
 
 		}
 
-
 		return true
 	}
 
-	override fun canExecute(user: User, channel: MessageChannel, guild: Guild) = guild.isOwner(user) || super.canExecute(user, channel, guild)
+
+	override fun canExecute(user: User, channel: MessageChannel, guild: Guild)
+		= guild.isOwner(user) || super.canExecute(user, channel, guild)
 
 }

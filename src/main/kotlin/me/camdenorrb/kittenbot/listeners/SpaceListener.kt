@@ -7,6 +7,10 @@ import me.camdenorrb.kittenbot.struct.STEM_SPACE_CHANNEL_ID
 import me.camdenorrb.minibus.event.EventWatcher
 import me.camdenorrb.minibus.listener.MiniListener
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
+import java.util.concurrent.ThreadLocalRandom
+
+
+private val msgs = arrayOf("SPACE! :3", "OMG, More space?!", "Thankz NASA <3", ":cat:")
 
 class SpaceListener : MiniListener {
 
@@ -18,7 +22,7 @@ class SpaceListener : MiniListener {
 		val channel = event.channel
 		if (event.guild.idLong != STEM_GUILD_ID || channel.idLong != STEM_SPACE_CHANNEL_ID) return
 
-		channel.sendText { "SPACE! :3" }
+		channel.sendText { msgs[ThreadLocalRandom.current().nextInt(0, msgs.size - 1)] }
 	}
 
 }
