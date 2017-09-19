@@ -22,7 +22,7 @@ class SpaceListener : MiniListener {
 		val channel = event.channel
 		if (event.guild.idLong != STEM_GUILD_ID || channel.idLong != STEM_SPACE_CHANNEL_ID) return
 
-		channel.sendText { msgs[ThreadLocalRandom.current().nextInt(0, msgs.size - 1)] }
+		channel.sendText { msgs[ThreadLocalRandom.current().nextInt(msgs.size)] }
 	}
 
 }

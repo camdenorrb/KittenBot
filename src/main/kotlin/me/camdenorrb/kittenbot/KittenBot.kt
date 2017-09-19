@@ -34,7 +34,7 @@ val bot: JDA = clientBlocking(BOT) {
 fun main(args: Array<String>) {
 
 	timer.scheduleAtFixedRate(SettingsSaveTask(), 300_000, 3_600_000)
-	Cmds.register(HelpCmd(), CopyCatCmd(), PrivateBookmarkCmd(), RandomCatCmd(), ClearCmd(), MeowCmd(), ShutDownCmd(), SetPrefixCmd(), GenderCmd(), AddOwnersCmd())
+	Cmds.register(HelpCmd(), SlapCmd(), CopyCatCmd(), PrivateBookmarkCmd(), MilliCmd(), RandomCatCmd(), ClearCmd(), MeowCmd(), ShutDownCmd(), SetPrefixCmd(), GenderCmd(), AddOwnersCmd())
 
 	println("Finished initializing, you can invite me by using: ${bot.asBot().getInviteUrl()}\n")
 }

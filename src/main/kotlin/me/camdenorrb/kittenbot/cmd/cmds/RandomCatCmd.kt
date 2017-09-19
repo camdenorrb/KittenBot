@@ -6,7 +6,7 @@ import me.camdenorrb.kittenbot.ext.readJson
 import me.camdenorrb.kittenbot.ext.readText
 import me.camdenorrb.kittenbot.requests.RandCatUrl
 import me.camdenorrb.kittenbot.struct.threadPool
-import net.dv8tion.jda.core.EmbedBuilder
+import me.camdenorrb.kittenbot.utils.jembed
 import net.dv8tion.jda.core.entities.Guild
 import net.dv8tion.jda.core.entities.Message
 import net.dv8tion.jda.core.entities.MessageChannel
@@ -21,7 +21,7 @@ class RandomCatCmd : Cmd(arrayOf("rcat", "rkat")) {
 
 		threadPool.execute {
 			val url = randomCatRequest.readText().readJson<RandCatUrl>().url.replace("http", "https")
-			channel.sendMessage(EmbedBuilder().setImage(url).build()).complete()
+			channel.sendMessage(jembed { setImage(url) }).complete()
 		}
 
 		return true

@@ -7,8 +7,8 @@ buildscript {
 	    gsonVersion = '2.8.1'
 	    shadowVersion = '2.0.1'
 	    kotlinVersion = '1.2-M2'
-	    JDAVersion = '3.3.0_261'
-	    minibusVersion = '1.1.1'
+	    JDAVersion = '3.3.0_272'
+	    minibusVersion = '1.1.2'
 	    KJDAVersion = 'master-SNAPSHOT'
     }
 
