@@ -33,7 +33,7 @@ class CmdListener : MiniListener {
 		val cmd = Cmds[args.removeAt(0)]
 
 
-		if (cmd == null || !cmd.canExecute(author, channel, guild)) return
+		if (cmd?.canExecute(author, channel, guild) != true) return
 
 		msg.safeDelete()
 

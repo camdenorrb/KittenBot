@@ -30,7 +30,8 @@ class ClearCmd : Cmd(arrayOf("clear"), "clear [1-100]", 1) {
 	}
 
 
-	override fun canExecute(user: User, channel: MessageChannel, guild: Guild)
-		= guild.isOwner(user) || super.canExecute(user, channel, guild)
+	override fun canExecute(user: User, channel: MessageChannel, guild: Guild): Boolean {
+		return guild.isOwner(user) || super.canExecute(user, channel, guild)
+	}
 
 }

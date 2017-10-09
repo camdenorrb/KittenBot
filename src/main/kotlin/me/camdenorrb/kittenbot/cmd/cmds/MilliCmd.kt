@@ -16,7 +16,8 @@ class MilliCmd : Cmd(arrayOf("milli"), "milli [Centimeters]", 1) {
 		return true
 	}
 
-	override fun canExecute(user: User, channel: MessageChannel, guild: Guild)
-		= guild.isOwner(user) || super.canExecute(user, channel, guild)
+	override fun canExecute(user: User, channel: MessageChannel, guild: Guild): Boolean {
+		return guild.isOwner(user) || super.canExecute(user, channel, guild)
+	}
 
 }

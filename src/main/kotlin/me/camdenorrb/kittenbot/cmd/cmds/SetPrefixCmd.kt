@@ -13,7 +13,7 @@ class SetPrefixCmd : Cmd(arrayOf("setPrefix"), "setPrefix [Prefix Character]", 1
 
 	override fun execute(user: User, args: List<String>, guild: Guild, channel: MessageChannel, msg: Message): Boolean {
 
-		val prefix = args[0][0]
+		val prefix = args[0].get(0)
 		if (prefix.isLetterOrDigit()) { channel.sendText { "The prefix you provided is a number or a digit!" }; return true }
 
 		GuildSettings[guild]?.prefix = prefix
@@ -25,7 +25,8 @@ class SetPrefixCmd : Cmd(arrayOf("setPrefix"), "setPrefix [Prefix Character]", 1
 	}
 
 
-	override fun canExecute(user: User, channel: MessageChannel, guild: Guild)
-		= guild.isOwner(user) || super.canExecute(user, channel, guild)
+	override fun canExecute(user: User, channel: MessageChannel, guild: Guild): Boolean {
+		return guild.isOwner(user) || super.canExecute(user, channel, guild)
+	}
 
 }

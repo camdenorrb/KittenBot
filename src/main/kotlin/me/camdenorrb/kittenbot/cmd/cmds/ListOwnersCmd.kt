@@ -1,22 +1,20 @@
 package me.camdenorrb.kittenbot.cmd.cmds
 
-import club.minnced.kjda.entities.sendText
+import club.minnced.kjda.entities.send
+import me.camdenorrb.kittenbot.cache.GuildSettings
 import me.camdenorrb.kittenbot.cmd.Cmd
-import me.camdenorrb.kittenbot.ext.isOwner
 import net.dv8tion.jda.core.entities.Guild
 import net.dv8tion.jda.core.entities.Message
 import net.dv8tion.jda.core.entities.MessageChannel
 import net.dv8tion.jda.core.entities.User
 
-class MeowCmd : Cmd(arrayOf("meow")) {
+
+class ListOwnersCmd: Cmd(arrayOf("listowners")) {
 
 	override fun execute(user: User, args: List<String>, guild: Guild, channel: MessageChannel, msg: Message): Boolean {
-		channel.sendText { "Mew meow mew! :cat:" }
+		val owners = GuildSettings[guild]?.owners?.map { "${it.name}:${it.discriminator}" } ?: return false
+		channel.send { appendln("```YAML").append("Owners: $owners```") }
 		return true
-	}
-
-	override fun canExecute(user: User, channel: MessageChannel, guild: Guild): Boolean {
-		return guild.isOwner(user) || super.canExecute(user, channel, guild)
 	}
 
 }
