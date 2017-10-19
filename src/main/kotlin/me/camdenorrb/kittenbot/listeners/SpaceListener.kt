@@ -10,7 +10,7 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent
 import java.util.concurrent.ThreadLocalRandom
 
 
-private val msgs = arrayOf("SPACE! :3", "OMG, More space?!", "Thankz NASA <3", ":cat:")
+private val msgs = arrayOf("Oh wowz :O, Thankz NASA <3", "Rick and morty stylez :3", "Uh, how did we get into the future, but like now? O.o", "Time travel must be a thing with this progress! Lizard peoplez?!", "Theoretical physics isn't this good :O", ":cat:")
 
 class SpaceListener : MiniListener {
 

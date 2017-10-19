@@ -14,6 +14,7 @@ import me.camdenorrb.kittenbot.tasks.SettingsSaveTask
 import me.camdenorrb.kittenbot.utils.clientBlocking
 import net.dv8tion.jda.core.AccountType.BOT
 import net.dv8tion.jda.core.JDA
+import net.dv8tion.jda.core.Permission.getPermissions
 import net.dv8tion.jda.core.requests.SessionReconnectQueue
 import java.io.File
 
@@ -36,6 +37,6 @@ fun main(args: Array<String>) {
 	timer.scheduleAtFixedRate(SettingsSaveTask(), 300_000, 3_600_000)
 	Cmds.register(HelpCmd(), SlapCmd(), CopyCatCmd(), PrivateBookmarkCmd(), MilliCmd(), RandomCatCmd(), ClearCmd(), MeowCmd(), ShutDownCmd(), SetPrefixCmd(), GenderCmd(), ListOwnersCmd(), RemOwnersCmd(), AddOwnersCmd())
 
-	println("\nFinished initializing, you can invite me by using: ${bot.asBot().getInviteUrl()}\n")
+	println("\nFinished initializing, you can invite me by using: ${bot.asBot().getInviteUrl(getPermissions(27649))}\n")
 }
 

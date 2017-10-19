@@ -10,7 +10,7 @@ class MiniEventManager : IEventManager {
 	override fun handle(event: Event) { minibus(event) }
 
 
-	override fun getRegisteredListeners() = minibus.listenerMap.toList()
+	override fun getRegisteredListeners() = minibus.listenerTable.map.toList()
 
 
 	override fun register(listener: Any) = minibus.register(listener as MiniListener)
